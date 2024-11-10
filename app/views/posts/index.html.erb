@@ -1,0 +1,15 @@
+<h1>Posts#index</h1>
+<!-- <p>Find me in app/views/posts/index.html.erb</p> -->
+<!-- <%= link_to 'Nuevo Post', new_post_path %> -->
+<ul>
+  <% @posts.each do |post| %>
+    <li>
+      <%= image_tag post.image if post.image.attached?%>
+      <p><%= post.description %></p>
+      <% if post.user == current_user %>
+        <%= link_to 'Editar', edit_post_path(post) %>
+        <%= button_to 'Eliminar', post, method: :delete, data: { confirm: 'Estas seguro?' } %>
+      <% end %>
+    </li>
+  <% end %>
+</ul>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Instagram</title>
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
+  <%= stylesheet_link_tag 'application', media: 'all' %>
+  <%= javascript_tag 'application' %>
+</head>
+<body>
+  <nav>
+    <%= link_to 'Instagram', root_path %>
+    <% if user_signed_in? %>
+      <%= link_to 'Nuevo Post', new_post_path %>
+      <!-- <%= link_to 'Login', new_user_session_path %> -->
+      <!-- <%= link_to 'Sign Up', new_user_registration_path %> -->
+      <%= button_to 'Logout', destroy_user_session_path, method: :delete %>
+    <% else %>
+      <%= link_to 'Login', new_user_session_path %>
+      <%= link_to 'Sign Up', new_user_registration_path %>
+    <% end %>
+  </nav>
+  <%= yield %>
+</body>
+</html>
