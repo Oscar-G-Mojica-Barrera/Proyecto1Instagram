@@ -50,7 +50,11 @@ group :development do
   gem "web-console"
   gem "devise"
   gem "jquery-rails"
-  
+  gem "bootstrap-sass"
+  gem "mini_magick"
+  gem "image_processing", ">= 1.2"
+  gem "turbolinks"
+  gem "aws-sdk-s3"
 
   # Highlight the fine-grained location where an error occurred [https://github.com/ruby/error_highlight]
   gem "error_highlight", ">= 0.4.0", platforms: [ :ruby ]

@@ -1,15 +1,17 @@
+<li class="post-card">
 <h1>Nuevo Post</h1>
-<p>Find me in app/views/posts/new.html.erb</p>
+<p>Asegurese de subir una foto y una descripcion de al menos 10 caracteres</p>
 <%= form_with(model: @post, local: true) do |form| %>
-    <div>
-      <%= form.label :description %>
-      <%= form.text_area :description %>
+    <div class="mb-3">
+      <%= form.label :description, class: 'form-label' %>
+      <%= form.text_area :description, class: 'form-control', rows: 5, required: true %>
+    </div>
+    <div class="mb-3">
+      <%= form.label :image, class: 'form-label' %>
+      <%= form.file_field :image, class: 'form-control', required: true %>
     </div>
     <div>
-      <%= form.label :image %>
-      <%= form.file_field :image %>
-    </div>
-    <div>
-      <%= form.submit 'Crear Post' %>
+      <%= form.submit 'Crear Post', class: 'btn btn-primary' %>
     </div>
 <% end %>
+</li>

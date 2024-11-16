@@ -1,3 +1,8 @@
+@import "bootstrap-sprockets";
+@import "bootstrap";
+@import "custom";
+@import "devise";
+
 /*
  * This is a manifest file that'll be compiled into application.css, which will include all the files
  * listed below.
@@ -13,3 +18,17 @@
  *= require_tree .
  *= require_self
  */
+// app/assets/stylesheets/application.scss
+
+//body {
+  //  background-color: #f8f9fa; // Color de fondo claro
+  //}
+  
+ // .card {
+ //   margin-bottom: 20px;
+  //}
+  
+  //.navbar {
+  //  margin-bottom: 20px;
+ // }
+  

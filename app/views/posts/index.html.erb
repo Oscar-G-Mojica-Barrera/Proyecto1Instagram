@@ -1,15 +1,20 @@
 <h1>Posts#index</h1>
 <!-- <p>Find me in app/views/posts/index.html.erb</p> -->
 <!-- <%= link_to 'Nuevo Post', new_post_path %> -->
-<ul>
+<ul class="List-unstyled">
   <% @posts.each do |post| %>
-    <li>
-      <%= image_tag post.image if post.image.attached?%>
+    <li class="post-card">
+      <h4><strong><%= post.user.email %></strong> </h4>
+      <%= image_tag post.image if post.image.attached? %>
       <p><%= post.description %></p>
-      <% if post.user == current_user %>
-        <%= link_to 'Editar', edit_post_path(post) %>
-        <%= button_to 'Eliminar', post, method: :delete, data: { confirm: 'Estas seguro?' } %>
-      <% end %>
+      <div class="d-flex align-items-center">
+       <%= link_to 'Mostrar Post', post, class: "btn btn-outline-secondary" %>
+        <% if post.user == current_user %>
+  
+         <%= link_to 'Editar', edit_post_path(post), class: "btn btn-outline-secondary" %>
+         <%= button_to 'Eliminar', post, method: :delete, data: { confirm: 'Estas seguro?' }, class: "btn btn-danger" %>
+        <% end %>
+      </div>
     </li>
   <% end %>
 </ul>

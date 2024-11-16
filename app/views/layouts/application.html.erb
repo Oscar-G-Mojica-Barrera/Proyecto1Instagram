@@ -4,22 +4,74 @@
   <title>Instagram</title>
   <%= csrf_meta_tags %>
   <%= csp_meta_tag %>
-  <%= stylesheet_link_tag 'application', media: 'all' %>
-  <%= javascript_tag 'application' %>
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
 </head>
 <body>
-  <nav>
-    <%= link_to 'Instagram', root_path %>
-    <% if user_signed_in? %>
-      <%= link_to 'Nuevo Post', new_post_path %>
-      <!-- <%= link_to 'Login', new_user_session_path %> -->
-      <!-- <%= link_to 'Sign Up', new_user_registration_path %> -->
-      <%= button_to 'Logout', destroy_user_session_path, method: :delete %>
-    <% else %>
-      <%= link_to 'Login', new_user_session_path %>
-      <%= link_to 'Sign Up', new_user_registration_path %>
-    <% end %>
-  </nav>
-  <%= yield %>
+
+<nav class="navbar navbar-expand-lg navbar-light">
+  <div class="collapse navbar-collapse">
+    <ul class="navbar-nav mr-auto">
+    </ul>
+    <div class="navbar-nav">
+      <div class="d-flex align-items-center">
+        <% if current_user %>
+          <%= link_to "Instagram", root_path, class: "navbar-brand" %> 
+          <%= link_to "Nuevo Post", new_post_path, class: 'nav-link' %>
+          <%= button_to "Log Out", destroy_user_session_path, method: :delete, class: 'btn btn-link nav-link' %>
+          <span class="navbar-text">
+            <i class="fas fa-user-circle"></i> <%= current_user.email %>
+          </span>
+        <% else %>
+          <%= link_to 'Login', new_user_session_path, class: 'nav-link' %>
+          <%= link_to 'Sign_Up', new_user_registration_path, class: 'nav-link' %>
+        <% end %>
+        <!-- Agrega la imagen de ícono al lado derecho de la navbar -->
+        <div class="ml-3">
+          <%= image_tag 'instaico.ico', class: 'navbar-icon', alt: 'Instagram Icon' %>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<div class="content-background">
+<div class="container mt-4">
+  <% flash.each do |key, message| %>
+    <div class="alert alert-<%= key == 'notice' ? 'success' : 'danger' %>">
+      <%= message %>
+    </div>
+  <% end %>
+
+  <div class="text-center">
+    <%= yield %>
+  </div>
+</div>
+</div>
+
+
+<footer class="bg-light text-center text-lg-start mt-4">
+  <div class="container p-4">
+    <div class="row">
+      <div class="col-lg-6 col-md-12 mb-4">
+        <h5 class="text-uppercase">Roberth Izzat Ruiz</h5>
+        <%= image_tag 'roberth1.ico' %>
+        <p>
+          <a href="https://www.facebook.com/roberth.izaat" class="btn btn-link">Contacta a Roberth</a>
+        </p>
+      </div>
+      <div class="col-lg-6 col-md-12 mb-4">
+        <h5 class="text-uppercase">Oscar G Mojica</h5>
+        <%= image_tag 'roberth1.ico'%>
+        <!--<img src="URL_DE_TU_IMAGEN_DERECHA" alt="Oscar G Mojica" class="img-fluid" style="max-width: 100px;">-->
+        <p>
+          <a href="https://www.facebook.com/actors.mathias" class="btn btn-link">Contacta a Oscar</a>
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
 </body>
 </html>

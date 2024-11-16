@@ -1,0 +1,16 @@
+<!-- <h1><%= @post.description %></h1> -->
+<li class="post-card">
+<h3><strong>Publicado por:</strong> <%= @post.user.email %></h3>
+<%= image_tag @post.image if @post.image.attached? %>
+<h5><p><%= @post.description %></p></h5>
+
+<div class="d-flex align-items-center">
+  <% if user_signed_in? && @post.user == current_user %>
+    <%= link_to 'Editar', edit_post_path(@post), class: 'btn btn-primary' %>
+    <%= button_to 'Eliminar', @post, method: :delete, data: { confirm: '¿Estás seguro?' }, class: 'btn btn-danger' %>
+  <% end %>
+
+  <%= link_to 'Volver', posts_path, class: 'btn btn-secondary' %>
+</div>
+</li>
+ 

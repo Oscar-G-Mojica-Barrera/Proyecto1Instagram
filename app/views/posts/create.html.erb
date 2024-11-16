@@ -1,2 +1,13 @@
 <h1>Posts#create</h1>
 <p>Find me in app/views/posts/create.html.erb</p>
+<% if flash[:notice] %>
+  <div class="alert alert-sucess">
+    <%= flash[:notice] %>
+  </div>
+<% end %>
+
+<% if flash[:alert] %>
+  <div class="alert alert-danger">
+    <%= flash[:alert] %>
+  </div>
+<% end %>
