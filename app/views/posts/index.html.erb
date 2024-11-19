@@ -5,7 +5,10 @@
   <% @posts.each do |post| %>
     <li class="post-card">
       <h4><strong><%= post.user.email %></strong> </h4>
+      <!--<%= image_tag post.image, class:"post-image" if post.image.attached? %>-->
+      <div class="post-image">
       <%= image_tag post.image if post.image.attached? %>
+      </div>
       <p><%= post.description %></p>
       <div class="d-flex align-items-center">
        <%= link_to 'Mostrar Post', post, class: "btn btn-outline-secondary" %>

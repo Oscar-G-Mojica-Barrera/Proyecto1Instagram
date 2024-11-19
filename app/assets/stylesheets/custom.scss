@@ -21,7 +21,18 @@
     align-items: end;
     align-content: end;
 }
-
+.navbar-icon{
+  align-items: center;
+  align-content: end;
+  justify-content: center;
+  display: block;
+  margin-left: auto
+  
+}
+.ms-3{
+  justify-content: center;
+  align-items: center;
+}
 .ml-3{
     align-items: end;
     align-content: end;
@@ -42,7 +53,7 @@ html, body {
     background-position: center; /* Centra la imagen */
     min-height: 100vh; /* Asegura que la sección tenga la altura de la ventana */
   }  
-
+  
 .wrapper {
     min-height: 100%;
     display: flex;
@@ -73,63 +84,78 @@ main{
     flex-grow: 1;
 }
 
-.post-card{
-    background-color: #f5f5f5;
-    border: 1px solid #525252;
-    border-radius: 12px;
-    padding: 20px;
-    margin: 20px 0;
-    height: 450px;
-    //width: 350px;
-    margin-left: 280px;
-    margin-right: 280px;
-    //align-items: center;
-    //justify-content: center;
-    h1 {
-        font-size: 24px;
-        margin-bottom: 20px;
-        color: #333;
-      }
-    
-      form {
-        display: flex;
-        flex-direction: column;
-        gap: 15px; /* Espacio entre los elementos */
-    
-        label {
+.post-card {
+  background-color: #f5f5f5;
+  border: 1px solid #525252;
+  border-radius: 12px;
+  padding: 20px;
+  margin: 20px 0;
+  margin-left: 250px;
+  margin-right: 250px;
+  height: auto; /* Ajuste dinámico de altura */
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centra los elementos horizontalmente */
+  justify-content: center; /* Centra los elementos verticalmente */
+
+  h1 {
+      font-size: 24px;
+      margin-bottom: 20px;
+      color: #333;
+  }
+
+  form {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+
+      label {
           font-weight: bold;
           color: #555;
-        }
-    
-        textarea {
-          resize: vertical; /* Solo permite redimensionar verticalmente */
+      }
+
+      textarea {
+          resize: vertical;
           padding: 10px;
           border-radius: 5px;
           border: 1px solid #ccc;
           font-size: 16px;
-        }
-    
-        input[type="file"] {
+      }
+
+      input[type="file"] {
           padding: 5px;
           border: 1px solid #ddd;
           border-radius: 5px;
-        }
-    
-        input[type="submit"] {
-          background-color: #007bff; /* Color de fondo */
-          color: white; /* Color del texto */
+      }
+
+      input[type="submit"] {
+          background-color: #007bff;
+          color: white;
           border: none;
           padding: 10px 20px;
           border-radius: 5px;
           cursor: pointer;
           font-size: 16px;
-    
+
           &:hover {
-            background-color: #0056b3; /* Color de fondo al pasar el cursor */
+              background-color: #0056b3;
           }
-        }
-    }
+      }
+  }
+
+  img {
+      display: block;
+      max-width: 600px; /* Máximo ancho */
+      max-height: 600px; /* Máximo alto */
+      min-width: 150px; /* Mínimo ancho */
+      min-height: 150px; /* Mínimo alto */
+      width: auto;
+      height: auto;
+      margin-bottom: 20px; /* Espaciado inferior */
+      object-fit: contain; /* Mantiene la proporción de la imagen */
+  }
 }
+
 
 .post-card .user{
     margin-bottom: 20px;
@@ -137,6 +163,12 @@ main{
 
 .post-card img {
     margin-bottom: 20px; /* Espacio entre la imagen y el siguiente elemento */
+    min-width: 150px;
+    max-width: 600px;
+    min-height: 150px;
+    max-height: 600px;
+    object-fit: cover; /* Mantiene la proporción y rellena el contenedor */
+    border-radius: 8px; /* Opcional: añade bordes redondeados */
   }
   
   .post-card .description {
@@ -146,6 +178,67 @@ main{
 .btn btn-primary{
     border-radius: 12px;
  
+}
+
+.post-card-p{
+  background-image: url("inst-back-img.png");
+  background-position: center;
+  background-size: cover;
+  background-color: #f5f5f5;
+  border: 1px solid #525252;
+  border-radius: 12px;
+  padding: 20px;
+  margin: 20px 0;
+  height: 450px;
+  //width: 350px;
+  margin-left: 250px;
+  margin-right: 250px;
+  //align-items: center;
+  //justify-content: center;
+  h1 {
+      font-size: 24px;
+      margin-bottom: 20px;
+      color: #333;
+    }
+  
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 15px; /* Espacio entre los elementos */
+  
+      label {
+        font-weight: bold;
+        color: #555;
+      }
+  
+      textarea {
+        resize: vertical; /* Solo permite redimensionar verticalmente */
+        padding: 10px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+        font-size: 16px;
+      }
+  
+      input[type="file"] {
+        padding: 5px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+      }
+  
+      input[type="submit"] {
+        background-color: #007bff; /* Color de fondo */
+        color: white; /* Color del texto */
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+  
+        &:hover {
+          background-color: #0056b3; /* Color de fondo al pasar el cursor */
+        }
+      }
+  }
 }
 
 .nav-link{
@@ -168,22 +261,38 @@ main{
   .me-2 {
     margin-right: 0.5rem; /* Añade un margen a la derecha para separar los elementos */
   }
+  
 
-  footer{
-    background-color: #070707;
+  .footer-image {
+    max-width: 250px; /* Tamaño máximo de la imagen */
+    height: auto;     /* Mantener proporciones */
+  }
+  
+  footer {
+    background-color: #000000; /* Color claro de fondo */
     padding: 20px 0;
-    color: #fdfbfb;
-    //fixed mantiene el footer al fondo pero corta el acceso a los botones del ultimo post
-    position: static;
-    bottom:0;
-    width: 100%;
-    //height: 10%;
+    .arriba{
+      text-align: justify;
+    }
   }
-  footer .btn-link{
+  footer h3{
+    color: #fffdfd;
+  }
+  footer h5 {
+    color: #f1f1f1;
+  }
+  
+  footer .btn-link {
     color: #007bff;
+    text-decoration: none;
   }
-
-  footer .btn-link:hover{
+  
+  footer .btn-link:hover {
     text-decoration: underline;
   }
+  
+  footer .row {
+    align-items: center; /* Asegura que las imágenes y textos estén alineados verticalmente */
+  }
+  
   
